@@ -11,27 +11,19 @@ import Layout from '@/layout'
 /**
  * Note: sub-menu only appear when route children.length >= 1
  * Detail see: https://panjiachen.github.io/vue-element-admin-site/guide/essentials/router-and-nav.html
- *
- * hidden: true                   if set true, item will not show in the sidebar(default is false)
-                                  * If true, the item will not appear in the sidebar (default is false).
- * alwaysShow: true               if set true, will always show the root menu
- *                                if not set alwaysShow, when item has more than one children route,
- *                                it will becomes nested mode, otherwise not show the root menu
-                                  * If true, always show the root menu.
-
-                                  *If alwaysShow is not set and an item has multiple child routes,
-
-                                  *it becomes nested; otherwise, the root menu is not shown.
- * redirect: noRedirect           if set to noRedirect, it will not appear as a redirect in the breadcrumb
- * name:'router-name'             the name is used by <keep-alive> (must set!!!)
+ * hidden: true                   if true, item will not appear in the sidebar (default is false)
+ * alwaysShow: true               if true, always show the root menu
+ *                                if not set and an item has multiple child routes, it becomes nested; otherwise, the root menu is hidden
+ * redirect: noRedirect           if set to noRedirect, no redirect is shown in the breadcrumb
+ * name:'router-name'             the name used by <keep-alive> (required)
  * meta : {
-    roles: ['admin','editor']    controls the page roles (multiple roles can be set)
-    title: 'title'               the name shown in the sidebar and breadcrumb (recommended)
-    icon: 'svg-name'/'el-icon-x' the icon shown in the sidebar
-    noCache: true                if true, the page will not be cached (default is false)
-    affix: true                  if true, the tag will be fixed in the tags view
-    breadcrumb: false            if false, hide the item from the breadcrumb (default is true)
-    activeMenu: '/example/list'  if set, the sidebar highlights the specified path
+    roles: ['admin','editor']    page roles (multiple roles can be set)
+    title: 'title'               name shown in the sidebar and breadcrumb (recommended)
+    icon: 'svg-name'/'el-icon-x' icon shown in the sidebar
+    noCache: true                if true, the page is not cached (default is false)
+    affix: true                  if true, the tag is fixed in the tags view
+    breadcrumb: false            if false, the item is hidden from the breadcrumb (default is true)
+    activeMenu: '/example/list'  path that the sidebar highlights when set
   }
  */
 
@@ -39,8 +31,6 @@ import Layout from '@/layout'
  * constantRoutes
  * a base page that does not have permission requirements
  * all roles can be accessed
- * Base pages without permission requirements
-  *Accessible to all roles
  */
 export const constantRoutes = [
   {
