@@ -522,6 +522,8 @@ export default {
     setDepartmentNameByDepartmentId() {
       const ids = this.dialogFormData.departmentId
       if (!ids || !ids.length) return
+      const departmentIds = ids.filter(id => id !== 0)
+      this.dialogFormData.departmentId = departmentIds
       const departments = []
       // Depth-first traversal function
       const dfs = (node, cb) => {
@@ -534,7 +536,7 @@ export default {
         }
       }
       dfs(this.departmentsOptions[0], node => {
-        if (ids.includes(node.ID)) {
+        if (node.ID !== 0 && departmentIds.includes(node.ID)) {
           departments.push(node.groupName)
         }
       })
