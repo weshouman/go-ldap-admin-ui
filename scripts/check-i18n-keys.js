@@ -98,10 +98,10 @@ function keysOf(locale) {
   return keys
 }
 
-const base = keysOf('zh-CN')
+const base = keysOf('en-US')
 let failed = false
 
-locales.filter(locale => locale !== 'zh-CN').forEach(locale => {
+locales.filter(locale => locale !== 'en-US').forEach(locale => {
   const keys = keysOf(locale)
   const missing = base.filter(key => !keys.includes(key))
   const extra = keys.filter(key => !base.includes(key))
